@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>KubeShop</title>
+</head>
+<body>
+  <h1>🛒 KubeShop</h1>
+  <button onclick="loadData()">Load Backend Data</button>
+  <pre id="output"></pre>
+
+<script>
+function loadData() {
+  fetch("http://backend-service:5000/api")
+    .then(res => res.json())
+    .then(data => {
+      document.getElementById("output").innerText =
+        JSON.stringify(data, null, 2);
+    });
+}
+</script>
+</body>
+</html>
